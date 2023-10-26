@@ -1,10 +1,6 @@
 import express, { Request, Response } from 'express';
 const router = express.Router();
 
-router.get('/', (req: Request, res: Response): void => {
-    res.send([]);
-});
-
 router.get('/posts/:id', (req, res) => {
     const postId = req.params.id;
     res.json({ message: `Blog post ${postId}` });
@@ -23,6 +19,10 @@ router.post('/posts', (req, res) => {
 router.put('/posts/:id', (req, res) => {
     const postId = req.params.id;
     res.json({ message: `Blog post ${postId} updated` });
+});
+
+router.get('/', (req: Request, res: Response): void => {
+    res.send([]);
 });
 
 module.exports = router;
